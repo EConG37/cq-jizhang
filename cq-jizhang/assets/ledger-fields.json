@@ -1,0 +1,8 @@
+[
+  {"name":"文本内容","type":"text"},
+  {"name":"日期","type":"datetime","style":{"format":"yyyy-MM-dd HH:mm"},"default_value":{"$slot":"record_created_time"}},
+  {"name":"收支类型","type":"select","multiple":false,"default_value":["支出"],"options":[{"name":"支出"},{"name":"收入"}]},
+  {"name":"金额","type":"number","style":{"type":"plain","precision":2}},
+  {"name":"具体花费项目","type":"text"},
+  {"name":"消费类型","type":"select","multiple":true,"options":[{"name":"饮食"},{"name":"交通"},{"name":"生活花费"},{"name":"零食"},{"name":"会员费"},{"name":"无匹配类别"}]}
+]

@@ -1,0 +1,6 @@
+interface:
+  display_name: "CQ-jizhang"
+  short_description: "逐步配置飞书记账，验证OCR缺项备用补全与每周预算日报周报"
+  default_prompt: "使用 $cq-jizhang 从零带我配置飞书截图记账，验证成功后设置每周预算并开启日报周报。"
+policy:
+  allow_implicit_invocation: true
