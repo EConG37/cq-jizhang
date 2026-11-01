@@ -24,11 +24,11 @@ python scripts/install.py
 
 ## 2. 开始配置
 
-读取已安装的 `SKILL.md` 与 `references/onboarding.md`。首先复用用户自己的账本；没有账本则按 `references/blank-ledger.md` 在飞书界面创建。不需要作者模板、作者账号或私人文档链接。
+读取已安装的 `SKILL.md` 与 `references/onboarding.md`。首先复用用户自己的账本；没有账本则引导整份复制[配套账本模板](https://zk5ckzju3h.feishu.cn/base/PhL3bQFKBa6jaks44mpcaMPMnbc?table=tblQkH2HRaCsoqbV&view=vewxPd2biE)到使用者自己的飞书云文档，保留六列、三个视图和仪表盘。仅模板无法复制时按 `references/blank-ledger.md` 创建备用账本。不需要作者账号或私人说明文档。
 
 按以下顺序逐步引导，每次只给当前可执行步骤：
 
-1. 创建或复用本人六列账本。
+1. 复制配套模板到本人云文档，或复用已有本人六列账本。
 2. 创建、授权和发布本人的飞书自建应用，并为账本添加文档应用。
 3. 复用本人无陌生外传动作的快捷指令，或按 `references/shortcut-build.md` 从零创建。
 4. 用户自己填凭据；播放一次，验证手机 OCR 文字确实写入本人账本。

@@ -35,7 +35,7 @@ App Secret 和访问令牌由我在安全入口填写，不要让我发到聊天
 使用 $cq-jizhang，从零带我配置飞书截图记账，验证成功后开启日报周报。
 ```
 
-公开版不依赖作者的飞书模板或私人快捷指令链接。Agent 按随包的[空白账本说明](cq-jizhang/references/blank-ledger.md)建立六列账本，再按[快捷指令创建步骤](cq-jizhang/references/shortcut-build.md)引导手机配置；已有自己的账本和快捷指令可以继续用。
+先整份复制[配套账本模板](https://zk5ckzju3h.feishu.cn/base/PhL3bQFKBa6jaks44mpcaMPMnbc?table=tblQkH2HRaCsoqbV&view=vewxPd2biE)到自己的飞书云文档，保留六列、三个视图和仪表盘；已有自己的账本可直接复用。Agent 应使用你的副本，不向模板原件写账。模板无法复制时，可按[空白账本说明](cq-jizhang/references/blank-ledger.md)建立备用账本，再按[快捷指令创建步骤](cq-jizhang/references/shortcut-build.md)引导手机配置。
 
 安装 Skill 本身不会登录飞书、写账、收集数据或创建定时任务。账本与配置由使用者自己保存。截图默认记录支出，收入单独告诉 Agent，不抵扣周消费预算。飞书和 Agent 的额度、费用以各自账号为准。
 
@@ -46,7 +46,7 @@ App Secret 和访问令牌由我在安全入口填写，不要让我发到聊天
 ```text
 python -m unittest discover -s tests -p "test_*.py"
 python scripts/audit_release.py
-python scripts/package_release.py --version 3.7.0
+python scripts/package_release.py --version 3.7.1
 ```
 
 离线检查不能代替每位使用者的手机、飞书权限和定时投递实测。公开版的空白账本和手工快捷指令流程尚未完成独立 iPhone 全链路验收。

@@ -1,11 +1,11 @@
 ---
 name: cq-jizhang
-description: 逐步配置本人飞书账本、应用和iOS截图快捷指令，验证写入读取；原生AI缺项时用当前Agent分析OCR并补原记录，支持周预算、日报周报及收入补记。用于首次搭建、续接、OCR补全、记账与排错，不依赖作者私人模板。
+description: 逐步复制配套飞书账本模板、配置本人应用和iOS截图快捷指令，验证写入读取；原生AI缺项时用当前Agent分析OCR并补原记录，支持周预算、日报周报及收入补记。用于首次搭建、续接、OCR补全、记账与排错。
 ---
 
 # CQ-jizhang｜飞书记账引导与消费管家
 
-公开版可从零使用：没有账本按 [空白账本](references/blank-ledger.md) 创建；没有快捷指令按 [手机创建步骤](references/shortcut-build.md) 引导。已有本人配置优先复用。先完成手机基础写入，再安装或核验 CLI；不索要作者的链接、账号或配置。
+没有账本时，先引导整份复制 [配套账本模板](https://zk5ckzju3h.feishu.cn/base/PhL3bQFKBa6jaks44mpcaMPMnbc?table=tblQkH2HRaCsoqbV&view=vewxPd2biE) 到本人云文档；模板无法复制时才按 [空白账本](references/blank-ledger.md) 创建备用账本。没有快捷指令按 [手机创建步骤](references/shortcut-build.md) 引导。已有本人配置优先复用。先完成手机基础写入，再安装或核验 CLI；不索要作者的账号或凭据。
 
 ## 默认提取顺序：固定两层
 
@@ -15,7 +15,7 @@ description: 逐步配置本人飞书账本、应用和iOS截图快捷指令，�
 
 ## 首次接待与续接
 
-先读取当前用户的非敏感配置进度，复用已完成的步骤。没有进度时从建立本人空白账本开始；用户已有经核验的脱敏模板时可复制。手机OCR入表测试通过后，才进入安装最后一步的CLI检查；按 [新手引导](references/onboarding.md) 每次只给一个可执行步骤，说明入口、操作、完成标志，再检查结果推进；用户想看完整教程时提供 [公开教程](assets/公开教程.md)。不要一次倾倒全部步骤，不要每步重新问是否授权已要求的配置。
+先读取当前用户的非敏感配置进度，复用已完成的步骤。没有进度时从复制配套模板开始，保留六列、三个视图和仪表盘；有自己的账本则复用。手机OCR入表测试通过后，才进入安装最后一步的CLI检查；按 [新手引导](references/onboarding.md) 每次只给一个可执行步骤，说明入口、操作、完成标志，再检查结果推进；用户想看完整教程时提供 [公开教程](assets/公开教程.md)。不要一次倾倒全部步骤，不要每步重新问是否授权已要求的配置。
 
 消费偏好只主动问一个问题：**“你每周大致想把支出控制在多少元？”** 在写入和读取验收后询问；前面已提供则不重问。预算可为0，可稍后设置，不追问月收入、月限额、固定开支、储蓄目标或分类预算。技术上无法推进时，只收集必要的副本链接、步骤完成情况、脱敏错误或接收目标。
 
@@ -23,7 +23,7 @@ description: 逐步配置本人飞书账本、应用和iOS截图快捷指令，�
 
 ## 配置与验收
 
-1. 复用用户账本；没有时按 [空白账本](references/blank-ledger.md) 创建六列和需要的视图/仪表盘。普通字段不等于已配置字段捷径；分别核对主链路能力，不写入任何作者模板。
+1. 复用用户账本；没有时整份复制配套模板到本人云文档，核对六列、三个视图和仪表盘，不写入模板原件。模板无法复制时才按 [空白账本](references/blank-ledger.md) 创建备用账本；普通字段不等于已配置字段捷径，分别核对主链路能力。
 2. 引导创建自己的企业自建应用、开通新增记录权限、发布版本；添加应用只走账本副本右上角「・・・」更多菜单→添加文档应用，并核对编辑权限；按实际接口补充读取权限。机器人消息能力仅在宿主确实需要时配置，不要求webhook。
 3. 按 [凭据填写对照](references/credentials.md) 填本人快捷指令参数；缺少安装资源时直接按 [手机创建步骤](references/shortcut-build.md) 从零建立。标记版的App ID、App Secret、记录接口URL三处“☑️在此处粘贴替换”需完整替换。副本app_token/table_id用于拼记录接口地址。Secret不发聊天、不存进状态或报告；用户自己填入手机。应用身份与Agent用户授权分别验证。
 4. 按 [测试与排错](references/verification.md) 让用户点击编辑页面右上角播放标一次，文本不限制。本人副本“文本内容”同步此次OCR即通过手机写入；金额/项目/分类与Agent读回、备用更新另行验收，不要求固定0.01元或唯一标记。只有非真实消费的测试ID排除；真实账单正常统计，不自动删除。
@@ -36,7 +36,7 @@ description: 逐步配置本人飞书账本、应用和iOS截图快捷指令，�
 
 ## 完成标准与状态
 
-分别记录 `template_copied / app_published / document_authorized / shortcut_configured / shortcut_write_verified / account_match_verified / ledger_read_permission_verified / ledger_update_permission_verified / agent_read_verified / agent_update_verified / ocr_fallback_verified / report_ready / schedule_active / delivery_verified / same_conversation_delivery_verified`。`template_copied`兼容旧状态名，公开版表示本人账本已创建或复制并核对六列，不声称复制过作者模板。状态落到用户专属的持久设置或工作区，参照 [状态结构](assets/setup-state.example.json)；示例false不是验证结果。云端预算和设置必须能被下一次定时任务重新读取，仅对话记忆不够。只保存ID、进度、预算、时间、身份、任务和验证结果，不保存凭据或账单全文。
+分别记录 `template_copied / app_published / document_authorized / shortcut_configured / shortcut_write_verified / account_match_verified / ledger_read_permission_verified / ledger_update_permission_verified / agent_read_verified / agent_update_verified / ocr_fallback_verified / report_ready / schedule_active / delivery_verified / same_conversation_delivery_verified`。`template_copied`表示本人账本已复制或创建并核对六列；采用空白备用方式时注明实际方式，不声称复制过模板。状态落到用户专属的持久设置或工作区，参照 [状态结构](assets/setup-state.example.json)；示例false不是验证结果。云端预算和设置必须能被下一次定时任务重新读取，仅对话记忆不够。只保存ID、进度、预算、时间、身份、任务和验证结果，不保存凭据或账单全文。
 
 原生AI未提取时优先执行Agent OCR补全；Agent无法运行、字段不可写或提取有歧义时转原记录人工核对。空白不是额度耗尽的充分证据，豆包工作不保证额度独立，外部宿主备用推理按所选Agent自身用量计费；缺少读取或实际调度能力时继续引导补齐，不把“能写入”说成“日报已启用”。预算稍后设置可先启用无预算日报周报，不编造预算提醒。
 

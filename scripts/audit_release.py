@@ -6,6 +6,7 @@ import re
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
+PUBLIC_TEMPLATE_URL = "https://zk5ckzju3h.feishu.cn/base/PhL3bQFKBa6jaks44mpcaMPMnbc?table=tblQkH2HRaCsoqbV&view=vewxPd2biE"
 SKILL_FILES = (
     "SKILL.md", "LICENSE", "agents/openai.yaml",
     "assets/agent-prompt.md", "assets/公开教程.md",
@@ -28,7 +29,7 @@ PATTERNS = {
     "email address": re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"),
     "phone number": re.compile(r"(?<!\w)1[3-9][0-9]{9}(?!\w)"),
     "real user or chat identifier": re.compile(r"\b(?:ou|oc)_[A-Za-z0-9]{12,}\b"),
-    "private Feishu resource URL": re.compile(r"https?://[A-Za-z0-9-]+\.feishu\.cn/(?:base|wiki|docx)/[A-Za-z0-9]+"),
+    "private Feishu resource URL": re.compile(r"https?://[A-Za-z0-9-]+\.feishu\.cn/(?:base|wiki|docx)/[^\s<>()\x22\x27\x60]+"),
     "private shortcut share": re.compile(r"icloud\.com/shortcuts/[A-Za-z0-9]+"),
     "credential-like value": re.compile(r"\b(?:sk-[A-Za-z0-9_-]{20,}|gh[oprs]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[A-Z0-9]{16}|cli_[A-Za-z0-9]{12,})\b"),
 }
@@ -37,7 +38,9 @@ PATTERNS = {
 def audit_text(name, payload):
     content = payload.decode("utf-8")
     for label, pattern in PATTERNS.items():
-        if pattern.search(content):
+        for match in pattern.finditer(content):
+            if label == "private Feishu resource URL" and match.group(0) == PUBLIC_TEMPLATE_URL:
+                continue
             raise ValueError(f"{name}: detected {label}; matched value withheld")
     if name.endswith(".md"):
         for target in re.findall(r"\]\(([^)]+)\)", content):

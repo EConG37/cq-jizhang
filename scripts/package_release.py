@@ -9,7 +9,7 @@ from audit_release import ROOT, SKILL_FILES, audit_folder, audit_zip
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="3.7.0")
+    parser.add_argument("--version", default="3.7.1")
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
     args = parser.parse_args()
     if not args.version or any(c not in "0123456789.-" for c in args.version):
